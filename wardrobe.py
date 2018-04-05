@@ -13,7 +13,7 @@ class Wardrobe:
     def __str__(self):
         return 'Name: ' + self.name + ', Material: ' + self.material
 
-    def open(self):
+    def open_wardrobe(self):
         if self.intact:
             if self.open == False:
                 self.open = True
@@ -22,7 +22,7 @@ class Wardrobe:
         else:
             print('Wardrobe has been broken.')
 
-    def close(self):
+    def close_wardrobe(self):
         if self.intact:
             if self.open:
                 self.open = False
@@ -53,11 +53,11 @@ class Wardrobe:
             print('Wardrobe has been broken.')
 
     def kick(self):
-        if self.material.lower() == 'wood':
-            print('Wardrobe still intact.')
-        if self.material.lower() == 'carbon fiber' or self.material.lower() == 'glass':
-            self.intact = False
-            print('Wardrobe has been damaged.')
-
-
-Wardrobe(material = 'wood', name = 'Pax')
+        if self.inside == False:
+            # if self.material.lower() == 'wood' or self.material.lower() == 'carbon fiber':
+            #     print('Wardrobe still intact.')
+            if self.material.lower() == 'glass':
+                self.intact = False
+                print('You have broken the wardrobe!')
+        else:
+            print('You cannot kick the wardrobe while you are inside it.')
